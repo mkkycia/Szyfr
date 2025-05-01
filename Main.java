@@ -38,10 +38,10 @@ public class Main {
             scanner.nextLine();
 
             if (action.equalsIgnoreCase("szyfruj")) {
-                result = CaesarCipher.encrypt(content, shift);
+                result = Cezar.encrypt(content, shift);
             } 
             else if (action.equalsIgnoreCase("odszyfruj")) {
-                result = CaesarCipher.decrypt(content, shift);
+                result = Cezar.decrypt(content, shift);
             } 
             else {
                 System.out.println("Nieprawidłowy wybór!");
