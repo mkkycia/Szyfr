@@ -1,5 +1,6 @@
 import io.FileManager;
 import szyfry.Cezar;
+import szyfry.Morse;
 
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class Main {
         scanner.nextLine();
 
         System.out.println("Wybierz: (szyfruj/odszyfruj):");
-        String action = scanner.nextLine();
+        String action = scanner.nextLine().toLowerCase();
 
         String result = null;
 
@@ -37,17 +38,29 @@ public class Main {
             int shift = scanner.nextInt();
             scanner.nextLine();
 
-            if (action.equalsIgnoreCase("szyfruj")) {
+            if ("szyfruj".equals(action)) {
                 result = Cezar.encrypt(content, shift);
             } 
-            else if (action.equalsIgnoreCase("odszyfruj")) {
+            else if ("odszyfruj".equals(action)) {
                 result = Cezar.decrypt(content, shift);
             } 
             else {
                 System.out.println("Nieprawidłowy wybór!");
                 return;
             }
-        } 
+        }
+        //Kodowanie Morse'em
+        else if (cipherChoice == 2) {
+            if ("szyfruj".equals(action) ||"koduj".equals(action) || "enkoduj".equals(action)) {
+                result = Morse.encrypt(content);
+            }
+            else if ("odszyfruj".equals(action) || "odkoduj".equals(action) || "dekoduj".equals(action)){
+                result = Morse.decrypt(content);
+            }
+            else {
+                System.out.println("Nieprawidłowy wybór!");
+            }
+        }
         else {
             System.out.println("Nieznany szyfr");
             return;
