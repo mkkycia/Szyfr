@@ -1,1 +1,3 @@
 Przykladowy input do zaszyfrowania lub odszyfrowania
+ala ma kota
+kot lubi dzieci

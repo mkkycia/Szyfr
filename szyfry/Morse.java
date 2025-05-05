@@ -5,6 +5,7 @@ public class Morse {
     private static final String[] LETTERS = new String[]{"·−", "−···", "−·−·", "−··", "·", "··−·", "−−·", "····", "··", "·−−−", "−·−", "·−··", "−−", "−·", "−−−", "·−−·", "−−·−", "·−·", "···", "−", "··−", "···−", "·−−", "−··−", "−·−−", "−−··"};
 
     public static String decrypt(String text){
+        text = text.trim(); //trailing newlines are incompatible with the Morse code convention.
         StringBuilder result = new StringBuilder();
         for(int i = 0; i < text.length(); ){
             if(text.charAt(i) == ' '){
@@ -42,13 +43,13 @@ public class Morse {
                 boolean match = false;
                 for(int j = 0; j<26; j++){
                     if(LETTERS[j].equals(characterCode)){
-                        result.append('a' + j);
+                        result.append((char)('a' + j));
                         match = true;
                         break;
                     }
                 }
                 if(!match){
-                    result.append('?');//incorrect character
+                    result.append('?');//for legibility, even if input is incorrect
                     System.err.println("Warning: Unknown Morse character code: '" + characterCode + "'");
                 }
             }
