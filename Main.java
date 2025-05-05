@@ -21,6 +21,7 @@ public class Main {
         // wybór szyfru
         System.out.println("Dostępne szyfry:");
         System.out.println("1 - Szyfr Cezara");
+        System.out.println("2 - Szyfr/alfabet Morse'a");
         // w przyszłości będzie więcej...
 
         System.out.println("Wybierz numer szyfru:");
@@ -52,7 +53,7 @@ public class Main {
         //Kodowanie Morse'em
         else if (cipherChoice == 2) {
             if ("szyfruj".equals(action) ||"koduj".equals(action) || "enkoduj".equals(action)) {
-                result = Morse.encrypt(content);
+                result = Morse.encrypt(content.toLowerCase()); //Morse code encrypt function accepts only lower-case characters
             }
             else if ("odszyfruj".equals(action) || "odkoduj".equals(action) || "dekoduj".equals(action)){
                 result = Morse.decrypt(content);

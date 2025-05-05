@@ -1,1 +1,1 @@
-Przykladowy input do zaszyfrowania lub odszyfrowania.
+Przykladowy input do zaszyfrowania lub odszyfrowania
